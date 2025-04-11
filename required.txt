@@ -1,0 +1,24 @@
+#Run the Application:
+python app.py
+
+#Upload Documents: Use the /upload endpoint to upload multiple documents:
+curl -X POST -F "files=@document1.pdf" -F "files=@document2.pdf" http://127.0.0.1:5000/upload
+
+#Ask a Question: Use the /ask endpoint to ask a question:
+curl -X POST -H "Content-Type: application/json" -d '{"question": "What are the key points in the financial reports?"}' http://127.0.0.1:5000/ask
+
+
+#Example Answer:
+#JSON
+{
+    "answer": "According to document 'financial_report_2022.pdf', the revenue increased by 20%. Another reference is 'financial_summary.pdf', which highlights a net profit of $5M."
+}
+
+#Prerequisites
+#Install Required Libraries:
+pip install flask langchain faiss-cpu pytesseract sentence-transformers
+
+#Install Tesseract (for OCR):
+
+#For Ubuntu:
+sudo apt install tesseract-ocr
